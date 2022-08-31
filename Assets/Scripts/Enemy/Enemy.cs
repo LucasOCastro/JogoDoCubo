@@ -6,8 +6,10 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private float activationRange;
     
     public bool Alerted { get; protected set; }
+    protected  EnemyAttacker Attacker { get; private set; }
     private void Awake()
     {
+        Attacker = GetComponent<EnemyAttacker>();
         OnSpawn();
     }
 
