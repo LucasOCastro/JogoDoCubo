@@ -15,10 +15,8 @@ namespace DefaultNamespace
         [SerializeField] private float rotationSpeed;
 
         private Vector3 _velocity;
-        private float _acceleration;
         protected override void OnSpawn()
         {
-            _acceleration = (accelerationTime > 0) ? walkSpeed / accelerationTime : 0;
         }
         
         protected  override void PursuePlayer()
@@ -69,8 +67,9 @@ namespace DefaultNamespace
             }
             
             //Aceleração suavizada
+            float acceleration = walkSpeed / accelerationTime;
             Vector3 targetVelocity = dir * walkSpeed;
-            _velocity = Vector3.MoveTowards(_velocity, targetVelocity, _acceleration * Time.deltaTime);
+            _velocity = Vector3.MoveTowards(_velocity, targetVelocity, acceleration * Time.deltaTime);
             transform.position += _velocity * Time.deltaTime;
         }
     }
