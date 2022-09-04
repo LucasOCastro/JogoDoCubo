@@ -726,8 +726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1152975577}
   mainTrans: {fileID: 1152975578}
-  acceleration: 3
-  maxSpeed: 10
+  acceleration: 30
+  maxSpeed: 100
 --- !u!1 &1227430423
 GameObject:
   m_ObjectHideFlags: 0

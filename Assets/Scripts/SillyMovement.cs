@@ -90,15 +90,9 @@ public class SillyMovement : MonoBehaviour
 
             // AJUSTANDO ANGULO
             // Ps: O que caralhos é um quarternion!?
-            Vector3 groundNormal = GetMeshColliderNormal(ground);
-
-            if (0 != groundNormal.magnitude) {
-                Vector3 hitNormal = ground.normal;
-                Vector3 vecDiff = (hitNormal - getDownDirection()).normalized;
-                //Debug.Log(vecDiff);
-                Debug.Log(ground.normal + ", " + GetMeshColliderNormal(ground) + ", " + getDownDirection());
-                rb.rotation = Quaternion.LookRotation (vecDiff, new Vector3(0, 0, 1));
-            }
+            Vector3 hitNormal = ground.normal;
+            Vector3 vecDiff = (hitNormal - getDownDirection()).normalized;
+            rb.rotation = Quaternion.LookRotation (vecDiff, new Vector3(0, 0, -1));
         }
 
 
