@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8728424107598451197}
   - component: {fileID: 8728424107598451198}
   - component: {fileID: 8728424107598451195}
+  - component: {fileID: 1126857299}
+  - component: {fileID: 1126857300}
   - component: {fileID: 8728424107598451196}
   - component: {fileID: 8728424107598451199}
   - component: {fileID: 8728424107598451168}
@@ -46,14 +48,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8728424107598451170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d724c56de04abea2cbf9259c4f4c56, type: 3}
+  m_Script: {fileID: 11500000, guid: b0c5e777db7b49119c3f2a57bc174f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   activationRange: 15
-  accelerationTime: 0.25
-  walkSpeed: 10
-  rotationSpeed: 200
 --- !u!114 &8728424107598451195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +69,43 @@ MonoBehaviour:
   distance: 1.6
   angle: 80
   animationName: EnemyAttack
+--- !u!114 &1126857299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728424107598451170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe69937d638f468c982638b1c845ea07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  accelerationTime: 0.75
+  walkSpeed: 7.5
+  rotationSpeed: 150
+  maxDistanceFromOrigin: 17
+  changeSecondsMin: 1.5
+  changeSecondsMax: 2.5
+  returnAngle: 90
+  chanceToStopWhenChanging: 65
+--- !u!114 &1126857300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728424107598451170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1c38c718a94c67bcc86cacd5a4fcdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  accelerationTime: 0.25
+  walkSpeed: 10
+  rotationSpeed: 200
 --- !u!95 &8728424107598451196
 Animator:
   serializedVersion: 4

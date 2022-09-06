@@ -24,7 +24,7 @@ public class AreaEnemyAttackerEditor : Editor
         var angleProperty = serializedObject.FindProperty(AngleFieldName);
         if (distanceProperty == null || angleProperty == null)
         {
-            Debug.Log("Nao achei a propriedade de distância de ataque / ângulo de ataque no inimigo!");
+            Debug.Log("Nao achei a propriedade de distância de ataque / ângulo de ataque no inimigo!", attacker);
             return;
         }
 

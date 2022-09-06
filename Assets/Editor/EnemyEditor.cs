@@ -22,7 +22,7 @@ public class EnemyEditor : Editor
         var rangeProperty = serializedObject.FindProperty(ActivationRangeFieldName);
         if (rangeProperty == null)
         {
-            Debug.Log("Nao achei a propriedade de range de ativação no inimigo!");
+            Debug.Log("Nao achei a propriedade de range de ativação no inimigo!", enemy);
             return;
         }
         
