@@ -7,8 +7,10 @@ public abstract class MovementBehavior : Behavior
     [SerializeField] private float accelerationTime;
     [Tooltip("A velocidade máxima do inimigo.")]
     [SerializeField] private float walkSpeed;
-    [Tooltip("Velocidade com que o inimigo vira ao mudar de direção. Apenas cosmético. Se for 0, a rotação será instantânea.")]
+    [Tooltip("Velocidade com que o inimigo vira ao mudar de direção. Se for 0, a rotação será instantânea.")]
     [SerializeField] private float rotationSpeed;
+    [Tooltip("Se true, só iniciará o movimento se estiver olhando pra direção certa.")]
+    [SerializeField] private bool moveAfterRotating;
     
     protected abstract Vector3 GetMoveDirection();
     protected abstract Vector3 GetLookDirection();
@@ -22,14 +24,17 @@ public abstract class MovementBehavior : Behavior
     private Vector3 _velocity;
     public override void Tick()
     {
-        Vector3 moveDir = GetMoveDirection();
-        MoveTowards(moveDir);
-
         Vector3 lookDir = GetLookDirection();
         if (lookDir != Vector3.zero)
         {
             RotateTowards(lookDir);
         }
+        
+        Vector3 moveDir = GetMoveDirection();
+        if (moveAfterRotating && transform.forward != lookDir) {
+            moveDir = Vector3.zero;
+        }
+        MoveTowards(moveDir);    
     }
     
     private void RotateTowards(Vector3 dir)
@@ -54,7 +59,7 @@ public abstract class MovementBehavior : Behavior
             transform.position += dir * walkSpeed * Time.deltaTime;
             return;
         }
-            
+
         //Aceleração suavizada
         Vector3 targetVelocity = dir * walkSpeed;
         _velocity = Vector3.MoveTowards(_velocity, targetVelocity, Acceleration * Time.deltaTime);

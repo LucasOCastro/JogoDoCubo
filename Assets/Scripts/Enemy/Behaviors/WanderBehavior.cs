@@ -7,9 +7,10 @@ public class WanderBehavior : MovementBehavior
     [Header("Wander")]
     [SerializeField] private float maxDistanceFromOrigin;
     [SerializeField] private float changeSecondsMin, changeSecondsMax;
-    [Tooltip("O range de ângulo que o inimigo pode seguir depois de ultrapassar a distância máxima da origem")]
+    [Tooltip("O range de ângulo que o inimigo pode seguir para retornar à origem depois de ultrapassar a distância máxima")]
     [Range(0, 90)]
     [SerializeField] private float returnAngle;
+    [Tooltip("A chance do inimigo parar por alguns segundos ao finalizar uma sequência de movimento.")]
     [Range(0,100)]
     [SerializeField] private int chanceToStopWhenChanging;
 
