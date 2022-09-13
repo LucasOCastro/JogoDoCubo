@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 1642166825}
   - component: {fileID: 1642166824}
   - component: {fileID: 1642166823}
+  - component: {fileID: 1642166826}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -433,6 +434,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642166821}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1642166826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642166821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dec276098f0c74983f9633c9bc392b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7897760860959304654, guid: 8c4c915f515baf749b547880857877d5, type: 3}
 --- !u!1 &1723409618
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +494,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.2716763, y: 1}
+    m_SensorSize: {x: 2.41875, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -496,7 +510,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723409618}
-  m_LocalRotation: {x: 0.38268343, y: 1e-45, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268343, y: -3e-45, z: 1e-45, w: 0.92387956}
   m_LocalPosition: {x: 0.3, y: 10.5, z: -9.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
