@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     
     
     public bool Alerted { get; private set; }
+    public Behavior CurrentBehavior { get; private set; }
     
     //Idealmente, quando lidamos com Behaviors, temos uma estrutura de decisão como uma Behavior Tree.
     //O jogo é bem simples, e os inimigos mal aparecerão na câmera, então não implementei esse sistema.
@@ -31,14 +32,18 @@ public class Enemy : MonoBehaviour
         if (_attacker.CanAttack(player))
         {
             _attacker.StartAttack(player);
+            CurrentBehavior = null;
             return;
         }
         
         if (Alerted)
         {
+            CurrentBehavior = _pursue;
             _pursue.Tick();
             return;
         }
+
+        CurrentBehavior = _wander;
         _wander.Tick();
         
         float sqrDistanceToPlayer = (transform.position - player.position).sqrMagnitude;

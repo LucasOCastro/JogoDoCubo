@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class MovementBehavior : Behavior
@@ -11,17 +12,17 @@ public abstract class MovementBehavior : Behavior
     [SerializeField] private float rotationSpeed;
     [Tooltip("Se true, só iniciará o movimento se estiver olhando pra direção certa.")]
     [SerializeField] private bool moveAfterRotating;
-    
+
     protected abstract Vector3 GetMoveDirection();
     protected abstract Vector3 GetLookDirection();
 
     /// <summary>
     /// Se negativo, então o movimento é linear.
     /// </summary>
-    protected float Acceleration => accelerationTime > 0 ? walkSpeed / accelerationTime : -1;
-    protected float Velocity => _velocity.magnitude;
-
-    private Vector3 _velocity;
+    public float Acceleration => accelerationTime > 0 ? walkSpeed / accelerationTime : -1;
+    public float CurrentSpeed => Velocity.magnitude;
+    public Vector3 Velocity { get; private set; }
+    
     public override void Tick()
     {
         Vector3 lookDir = GetLookDirection();
@@ -34,7 +35,7 @@ public abstract class MovementBehavior : Behavior
         if (moveAfterRotating && transform.forward != lookDir) {
             moveDir = Vector3.zero;
         }
-        MoveTowards(moveDir);    
+        MoveTowards(moveDir);
     }
     
     private void RotateTowards(Vector3 dir)
@@ -62,7 +63,7 @@ public abstract class MovementBehavior : Behavior
 
         //Aceleração suavizada
         Vector3 targetVelocity = dir * walkSpeed;
-        _velocity = Vector3.MoveTowards(_velocity, targetVelocity, Acceleration * Time.deltaTime);
-        transform.position += _velocity * Time.deltaTime;
+        Velocity = Vector3.MoveTowards(Velocity, targetVelocity, Acceleration * Time.deltaTime);
+        transform.position += Velocity * Time.deltaTime;
     }
 }

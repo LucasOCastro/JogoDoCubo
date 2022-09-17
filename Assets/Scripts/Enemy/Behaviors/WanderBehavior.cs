@@ -32,7 +32,7 @@ public class WanderBehavior : MovementBehavior
             //Se o movimento é acelerado, até conseguir mudar de direção talvez já ultrapassou o limite.
             //Sendo assim, também considero o deslocamento do MUV na comparação de distância.
             //dV = a*t <-> t = dV/a <-> t = Vo/a  ==>  dS = Vot - at²/2 <-> dS = Vo²/a - Vo²/2a <-> [dS = Vo²/2a]
-            float vel = Velocity;
+            float vel = CurrentSpeed;
             float deltaPos = (vel * vel) / (2 * Acceleration); 
             adjustedMaxDistance -= deltaPos;
         }

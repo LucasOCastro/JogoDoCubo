@@ -12,18 +12,18 @@ public class AreaEnemyAttacker : EnemyAttacker
 
     public override bool CanAttack(Transform player) => base.CanAttack(player) && IsInArea(player.position);
 
-    private Animator _animator;
+    private EnemyAnimator _animator;
     private int _animationHash;
     private bool _attackWindow;
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponent<EnemyAnimator>();
         _animationHash = Animator.StringToHash(animationName);
     }
 
     protected override void OnAttackStart()
     {
-        _animator.Play(_animationHash);
+        _animator.PlayAnimation(_animationHash);
     }
 
     protected override void AttackUpdate()
