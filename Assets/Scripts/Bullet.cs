@@ -20,6 +20,8 @@ public class Bullet : MonoBehaviour
     
     void OnCollisionEnter(Collision other)
     {   
+        
+        //Quando tivermos classe de vida, podemos apenas dar um getcomponent aqui ao inves de comparar tags.
         if (other.gameObject.CompareTag("Enemy"))//Verifica se o objeto possui a Tag "Enemy"
          {
             Debug.Log("Acertou inimigo");
