@@ -17,4 +17,15 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
+    
+    void OnCollisionEnter(Collision other)
+    {   
+        if (other.gameObject.CompareTag("Enemy"))//Verifica se o objeto possui a Tag "Enemy"
+         {
+            Debug.Log("Acertou inimigo");
+            //Função de Dano
+         }
+        
+        Destroy(gameObject);
+    }
 }
