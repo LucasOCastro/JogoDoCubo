@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public struct Level
+public class Level
 {
     [SerializeField] private string levelName;
     public string LevelName => levelName;
