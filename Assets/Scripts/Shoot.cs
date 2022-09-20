@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    [SerializeField] GameObject bullet;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform bulletSpawnPos;
+    [SerializeField] private Transform fireEffectPrefab;
 
     void Update()
     {
@@ -14,9 +16,14 @@ public class Shoot : MonoBehaviour
     
     private void Fire()
     {
+        Vector3 position = (bulletSpawnPos != null) ? bulletSpawnPos.position : transform.position;
         Vector3 direction = DirectionToMouse();
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-        Instantiate(bullet, transform.position, rotation);
+        Instantiate(bullet, position, rotation);
+        if (fireEffectPrefab != null)
+        {
+            Instantiate(fireEffectPrefab, position, rotation);    
+        }
     }
 
     private Vector3 DirectionToMouse()
