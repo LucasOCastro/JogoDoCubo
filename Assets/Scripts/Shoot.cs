@@ -5,12 +5,16 @@ public class Shoot : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform bulletSpawnPos;
     [SerializeField] private Transform fireEffectPrefab;
+    [SerializeField] private float minTimeBetweenShots;
 
+    private float _timer;
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        _timer += Time.deltaTime;
+        if (Input.GetButton("Fire1") && _timer >= minTimeBetweenShots)
         {
             Fire();
+            _timer = 0;
         }
     }
     
