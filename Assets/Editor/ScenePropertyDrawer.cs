@@ -7,7 +7,6 @@ public class ScenePropertyDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        Debug.Log("awoo");
         if (property.propertyType != SerializedPropertyType.String)
         {
             Debug.LogError("Type do atributo SerializedScene deve ser string");

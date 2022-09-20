@@ -59,10 +59,18 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Não consegui carregar o próximo level");
+        Debug.LogError("Não consegui carregar o próximo level");
     }
 
-    public static void LoadLevel(int lvl) => LoadLevel(_instance.levels[lvl]);
+    public static void LoadLevel(int lvl)
+    {
+        if (lvl < 0 || lvl >= _instance.levels.Length)
+        {
+            Debug.LogError($"{lvl} é um índice de level inválido.");
+            return;
+        }
+        LoadLevel(_instance.levels[lvl]);
+    }
     private static  void LoadLevel(Level lvl)
     {
         SceneManager.LoadScene(lvl.Scene.buildIndex);
