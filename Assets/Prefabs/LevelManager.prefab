@@ -47,5 +47,3 @@ MonoBehaviour:
   levels:
   - levelName: First Level
     scene: Map
-  - levelName: First Level
-    scene: Map

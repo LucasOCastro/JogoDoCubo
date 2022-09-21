@@ -15,14 +15,8 @@ public class ScenePropertyDrawer : PropertyDrawer
         
         var oldSceneAsset = GetSceneAsset(property.stringValue);
         var sceneAsset = EditorGUI.ObjectField(position, label, oldSceneAsset, typeof(SceneAsset), false) as SceneAsset;
-        if (oldSceneAsset == sceneAsset)
+        if (oldSceneAsset == sceneAsset || sceneAsset == null)
         {
-            return;
-        }
-
-        if (sceneAsset == null)
-        {
-            property.stringValue = "";
             return;
         }
 
@@ -42,7 +36,7 @@ public class ScenePropertyDrawer : PropertyDrawer
         
         bool autoAdd = EditorUtility.DisplayDialog(
             "Cena não configurada",
-            $"Para ser usada no jogo, a cena precisa antes ser adicionada nas BuildSettings do projeto. Deseja adicionar a cena \"{sceneAsset.name}.unity\" automaticamente?",
+            "Para ser usada no jogo, a cena precisa antes ser adicionada nas BuildSettings do projeto. Deseja adicionar essa cena automaticamente?",
             "Sim", "Não"
         );
         if (!autoAdd)
@@ -69,7 +63,7 @@ public class ScenePropertyDrawer : PropertyDrawer
 
         foreach (var scene in EditorBuildSettings.scenes)
         {
-            if (scene.path.Replace(".unity", "").EndsWith(named))
+            if (scene.path.Contains(named))
             {
                 return AssetDatabase.LoadAssetAtPath<SceneAsset>(scene.path);
             }
