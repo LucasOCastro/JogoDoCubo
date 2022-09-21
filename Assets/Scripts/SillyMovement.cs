@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -107,7 +108,7 @@ public class SillyMovement : MonoBehaviour
     /**
      * @brief Código retirado de 
      *  <https://answers.unity.com/questions/50846/how-do-i-obtain-the-surface-normal-for-a-point-on.html>.
-     */
+     *
     private Vector3 GetMeshColliderNormal(RaycastHit hit)
     {
         if (null == hit.collider) return new Vector3(0, 0, 0);
@@ -189,7 +190,7 @@ public class SillyMovement : MonoBehaviour
      *   onde a entidade pode e quer ir.
      * @return Um vetor tridimensional que indica a para onde a entidade pode e
      *   quer ir.
-     */
+     *
     Vector3 getMovementDecision(Vector3 movementIntention, RaycastHit ground)
     {
         Vector3 projectedIntention = Vector3.ProjectOnPlane(
@@ -201,7 +202,7 @@ public class SillyMovement : MonoBehaviour
 
     /** 
      * @return Um vetor tridimensional que indica a para onde a entidade quer ir.
-     */
+     *
     Vector3 getMovementIntention ()
     {
         return getPlayerInputVector ();
@@ -209,7 +210,7 @@ public class SillyMovement : MonoBehaviour
 
     /** 
      * @return Um vetor tridimensional que indica a para onde o jogador quer ir.
-     */
+     *
     Vector3 getPlayerInputVector ()
     {
         Vector3 v = Vector3.right * Input.GetAxis("Horizontal") + 
@@ -218,3 +219,4 @@ public class SillyMovement : MonoBehaviour
         return v.magnitude > 1 ? v.normalized : v;
     }
 }
+*/

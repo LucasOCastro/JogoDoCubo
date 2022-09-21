@@ -25,7 +25,7 @@ public class PlayerControl : MovementBehavior
         //Debug.Log(getPlayerMovIntention ());
         if (0 < getPlayerMovIntention().magnitude)
         {
-            Debug.Log("a");
+            //Debug.Log("a");
             animator.SetBool("Run", true);
             animator.SetBool("Motionless", false);
             animator.SetBool("Idle", false);
