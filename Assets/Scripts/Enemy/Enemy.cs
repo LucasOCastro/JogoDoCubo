@@ -4,6 +4,18 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] protected Transform player;
     [SerializeField] private float activationRange;
+
+    //TODO isso e tudo sobre ragdoll deveria estar na classe de vida
+    [SerializeField] private GameObject ragdollPrefab;
+    public void SpawnRagdoll(Vector3 impactPoint, Vector3 force)
+    {
+        var instance = Instantiate(ragdollPrefab, transform.position, transform.rotation);
+        var rb = instance.GetComponentInChildren<Rigidbody>();
+        rb.AddForceAtPosition(force, impactPoint, ForceMode.Impulse);
+        Destroy(gameObject);
+    }
+    
+    
     
     
     public bool Alerted { get; private set; }
