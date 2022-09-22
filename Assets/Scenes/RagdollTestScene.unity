@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dec276098f0c74983f9633c9bc392b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7897760860959304654, guid: 8c4c915f515baf749b547880857877d5, type: 3}
+  bullet: {fileID: 0}
   bulletSpawnPos: {fileID: 401953708}
   fireEffectPrefab: {fileID: 1851759145057368652, guid: 11612bc681afd704b9b207f2b0b916ec,
     type: 3}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 1562662646}
   - component: {fileID: 1562662645}
   - component: {fileID: 1562662644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
