@@ -7,7 +7,7 @@ public static class CameraUtility
     
     public static Vector3 RotateFlatVector(Vector3 vec)
     {
-        vec = Camera.main.transform.rotation * vec;
+        vec = Camera.main.transform.TransformDirection(vec);
         vec = new Vector3(vec.x, 0, vec.z).normalized;
         return vec;
     }
