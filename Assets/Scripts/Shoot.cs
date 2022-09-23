@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private Bullet bullet;
     [SerializeField] private Transform bulletSpawnPos;
     [SerializeField] private Transform fireEffectPrefab;
     [SerializeField] private float minTimeBetweenShots;

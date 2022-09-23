@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 520020084}
   - component: {fileID: 520020083}
   - component: {fileID: 520020087}
+  - component: {fileID: 520020088}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -265,11 +266,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dec276098f0c74983f9633c9bc392b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 6190165076256626740, guid: 8c4c915f515baf749b547880857877d5, type: 3}
   bulletSpawnPos: {fileID: 401953708}
   fireEffectPrefab: {fileID: 1851759145057368652, guid: 11612bc681afd704b9b207f2b0b916ec,
     type: 3}
   minTimeBetweenShots: 0.35
+--- !u!114 &520020088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520020082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ae5d84d22e473f98f58360e443aa0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBehavior: {fileID: 0}
 --- !u!1 &1030463460
 GameObject:
   m_ObjectHideFlags: 0

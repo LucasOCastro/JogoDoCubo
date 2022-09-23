@@ -1,18 +1,17 @@
-using System;
 using UnityEngine;
 
-public class EnemyAnimator : MonoBehaviour
+public class BehaviorAnimator : MonoBehaviour
 {
-    private static readonly int XVel = Animator.StringToHash("xVel");
-    private static readonly int YVel = Animator.StringToHash("yVel");
+    private static readonly int XVel = UnityEngine.Animator.StringToHash("xVel");
+    private static readonly int YVel = UnityEngine.Animator.StringToHash("yVel");
 
 
     private Animator _animator;
-    private Enemy _enemy;
+    private BehaviorRunner _runner;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _enemy = GetComponent<Enemy>();
+        _runner = GetComponent<BehaviorRunner>();
     }
 
     public void PlayAnimation(int animHash)
@@ -23,7 +22,7 @@ public class EnemyAnimator : MonoBehaviour
     private void Update()
     {
         Vector2 velocity = Vector2.zero;
-        if (_enemy.CurrentBehavior is MovementBehavior movement)
+        if (_runner.CurrentBehavior is MovementBehavior movement)
         {
             Vector3 orientedVel = transform.InverseTransformDirection(movement.Velocity.normalized);
             velocity = new Vector2(orientedVel.x, orientedVel.z);

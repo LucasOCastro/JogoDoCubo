@@ -12,18 +12,18 @@ public class AreaEnemyAttacker : EnemyAttacker
 
     public override bool CanAttack(Transform player) => base.CanAttack(player) && IsInArea(player.position);
 
-    private EnemyAnimator _animator;
+    private BehaviorAnimator _behaviorAnimator;
     private int _animationHash;
     private bool _attackWindow;
     private void Awake()
     {
-        _animator = GetComponent<EnemyAnimator>();
-        _animationHash = Animator.StringToHash(animationName);
+        _behaviorAnimator = GetComponent<BehaviorAnimator>();
+        _animationHash = UnityEngine.Animator.StringToHash(animationName);
     }
 
     protected override void OnAttackStart()
     {
-        _animator.PlayAnimation(_animationHash);
+        _behaviorAnimator.PlayAnimation(_animationHash);
     }
 
     protected override void AttackUpdate()

@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerControl : MovementBehavior
 {
     [Tooltip("O animatior do player, cujo estado de animação será modificado durante o jogo.")]
-    [SerializeField] private Animator animator;
+    [SerializeField] private UnityEngine.Animator animator;
     [Tooltip("Quanto tem o bob fica parado sem fazer nada.")]
     [SerializeField] private float MotionlessDuration;
     [Tooltip("Quanto tem o bob fica parado fazendo uma animação idle.")]
