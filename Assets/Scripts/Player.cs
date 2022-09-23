@@ -4,11 +4,11 @@ public class Player : BehaviorRunner
 {
     public static Player Instance {get; private set;}
 
-    [SerializeField] private Behavior playerBehavior;
+    private PlayerControlBehavior _playerBehavior;
 
     protected override Behavior GetBehavior()
     {
-        return playerBehavior;
+        return _playerBehavior;
     }
 
     private void Awake()
@@ -19,5 +19,7 @@ public class Player : BehaviorRunner
             return;
         }
         Instance = this;
+
+        _playerBehavior = GetComponent<PlayerControlBehavior>();
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 //enum AnimState : Byte {motionless, idle, running};
 
-public class PlayerControl : MovementBehavior
+public class PlayerControlBehavior : MovementBehavior
 {
     [Tooltip("O animatior do player, cujo estado de animação será modificado durante o jogo.")]
     [SerializeField] private UnityEngine.Animator animator;
@@ -23,7 +23,7 @@ public class PlayerControl : MovementBehavior
 
     private void FixedUpdate() {
         //Debug.Log(getPlayerMovIntention ());
-        if (0 < getPlayerMovIntention().magnitude)
+        if (0 < GetPlayerMovIntention().magnitude)
         {
             //Debug.Log("a");
             animator.SetBool("Run", true);
@@ -45,17 +45,14 @@ public class PlayerControl : MovementBehavior
             MotionlessTimeCounter = 0;
             IdleTimeCounter = 0;
         }
-
-        Tick();
     }
     
-    private Vector3 getPlayerMovIntention ()
-    { 
-        Vector3 v = (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))).normalized;
-        //Debug.Log(v * 1);
-        return v;
+    private Vector3 GetPlayerMovIntention()
+    {
+        Vector3 dir = (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))).normalized;
+        return CameraUtility.RotateFlatVector(dir);
     }
 
-    protected override Vector3 GetMoveDirection() => getPlayerMovIntention ();
-    protected override Vector3 GetLookDirection() => getPlayerMovIntention ();
+    protected override Vector3 GetMoveDirection() => GetPlayerMovIntention();
+    protected override Vector3 GetLookDirection() => CameraUtility.DirectionToMouse(transform.position);
 }
