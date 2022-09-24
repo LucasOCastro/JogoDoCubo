@@ -81,6 +81,6 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        Debug.LogError("Não consegui carregar o próximo level");
+        Debug.Log("Não tem carregar o próximo level");
     }
 }
