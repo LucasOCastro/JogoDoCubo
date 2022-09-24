@@ -1226,7 +1226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1126857299, guid: db9e37bf26246c945ad3899b9221005e, type: 3}
       propertyPath: maxDistanceFromOrigin
-      value: 3.69
+      value: 9.48
       objectReference: {fileID: 0}
     - target: {fileID: 8728424107598451170, guid: db9e37bf26246c945ad3899b9221005e,
         type: 3}

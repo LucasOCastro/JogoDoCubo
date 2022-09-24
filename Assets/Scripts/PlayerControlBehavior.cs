@@ -13,13 +13,8 @@ public class PlayerControlBehavior : MovementBehavior
     [Tooltip("Quanto tem o bob fica parado fazendo uma animação idle.")]
     [SerializeField] private float IdleDuration;
 
-    private float MotionlessTimeCounter;
-    private float IdleTimeCounter;
-
-    private void Start() {
-        MotionlessTimeCounter = 0;
-        IdleTimeCounter = 0;
-    }
+    private float MotionlessTimeCounter = 0;
+    private float IdleTimeCounter = 0;
 
     private void FixedUpdate() {
         //Debug.Log(getPlayerMovIntention ());

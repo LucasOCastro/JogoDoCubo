@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8474736831898270915}
   - component: {fileID: 5240751609572299281}
   - component: {fileID: 3025210839973933195}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4244470009329628039}
   - component: {fileID: 5244172905558678048}
   - component: {fileID: 532462332117800127}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 7113768101512514297}
   - component: {fileID: 1995231981155873623}
   - component: {fileID: 7558516319724987331}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sombracelha_esq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2159585810959776693}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_olho_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 3584815527615365006}
   - component: {fileID: 3663628113595115042}
   - component: {fileID: 226612785484679058}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 8521343373869537240}
   - component: {fileID: 1798959461979360247}
   - component: {fileID: 1827096840255739469}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: iris_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 3430025140780776040}
   - component: {fileID: 7883767193925976540}
   - component: {fileID: 4707203218972317637}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mao_mecanica
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2189156631327481406}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_olho_esq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7200765198028724916}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_fedora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4260721298366848494}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_sombrancelha_esq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 1076586213224479780}
   - component: {fileID: 7659334463901772274}
   - component: {fileID: 6323895005694261229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sombracelha_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 3610712628433854871}
   - component: {fileID: 4338967174366656084}
   - component: {fileID: 4490262678254760670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: perna_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 2045180733781873634}
   - component: {fileID: 9173288049922735369}
   - component: {fileID: 661504474206520644}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: iris_esq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,9 +897,10 @@ GameObject:
   - component: {fileID: 3145490639335504868}
   - component: {fileID: 3145490639861283677}
   - component: {fileID: 3145490639861283671}
-  m_Layer: 0
+  - component: {fileID: -7208078441631089023}
+  m_Layer: 7
   m_Name: Joe
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,6 +1038,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09169311f58342a1986f63ca963cf3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &-7208078441631089023
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3145490639335504871}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1 &3908395042205925052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1065,7 @@ GameObject:
   - component: {fileID: 5547278284981666308}
   - component: {fileID: 2227274362649178046}
   - component: {fileID: 7000024780242950216}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1334190476140198308}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_perna_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1164,7 +1181,7 @@ GameObject:
   - component: {fileID: 2454279486072584443}
   - component: {fileID: 7841087507632879200}
   - component: {fileID: 8332499862005528462}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,7 +1264,7 @@ GameObject:
   - component: {fileID: 2111099254333577934}
   - component: {fileID: 2614601659738237392}
   - component: {fileID: 1625758006335573389}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1347,7 @@ GameObject:
   - component: {fileID: 1668475646310608285}
   - component: {fileID: 5230124928809626814}
   - component: {fileID: 381381408265979140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: olho_eq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,7 +1428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7283200746115808018}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_perna_esq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1443,7 +1460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131193907528817539}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1474,7 +1491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7403375168611796086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_iris_esq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1507,7 +1524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3901822946455776298}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_makina_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,7 +1559,7 @@ GameObject:
   - component: {fileID: 8648503240543838931}
   - component: {fileID: 8070706541010828358}
   - component: {fileID: 6990087279956842843}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1624,7 +1641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2224981011191567819}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_iris_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1659,7 +1676,7 @@ GameObject:
   - component: {fileID: 8618790402761370772}
   - component: {fileID: 5405474001531052879}
   - component: {fileID: 8829446943078777492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: olho_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1740,7 +1757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7484494148087205003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_central
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1784,7 +1801,7 @@ GameObject:
   - component: {fileID: 4838098043154801285}
   - component: {fileID: 7853177326046711902}
   - component: {fileID: 2491872233153525920}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: perna_esq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1867,7 +1884,7 @@ GameObject:
   - component: {fileID: 6232458756022425579}
   - component: {fileID: 4140343464038515465}
   - component: {fileID: 3254314689993149999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cubo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1951,7 +1968,7 @@ GameObject:
   - component: {fileID: 2989881156883984612}
   - component: {fileID: 1733867754779793153}
   - component: {fileID: 9146873747415039319}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: suspensorio_meio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,7 +2049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3166937926769014173}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_sombrancelha_dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2064,7 +2081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3905711245179876674}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bone_gravata
   m_TagString: Untagged
   m_Icon: {fileID: 0}

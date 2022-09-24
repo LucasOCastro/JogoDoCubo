@@ -22,7 +22,13 @@ public abstract class MovementBehavior : Behavior
     public float Acceleration => accelerationTime > 0 ? walkSpeed / accelerationTime : -1;
     public float CurrentSpeed => Velocity.magnitude;
     public Vector3 Velocity { get; private set; }
-    
+
+    private Rigidbody _rb;
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
     public override void Tick()
     {
         Vector3 lookDir = GetLookDirection();
@@ -49,7 +55,7 @@ public abstract class MovementBehavior : Behavior
             
         //Rotação suavizada
         Quaternion targetRotation = Quaternion.LookRotation(dir, Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        _rb.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     private void MoveTowards(Vector3 dir)
@@ -64,6 +70,6 @@ public abstract class MovementBehavior : Behavior
         //Aceleração suavizada
         Vector3 targetVelocity = dir * walkSpeed;
         Velocity = Vector3.MoveTowards(Velocity, targetVelocity, Acceleration * Time.deltaTime);
-        transform.position += Velocity * Time.deltaTime;
+        _rb.position += Velocity * Time.deltaTime;
     }
 }
