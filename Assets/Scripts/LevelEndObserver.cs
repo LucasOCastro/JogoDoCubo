@@ -32,15 +32,6 @@ public class LevelEndObserver : MonoBehaviour
         }
     }
 
-#if UNITY_EDITOR
-    private void Update()
-    {
-        //TODO DEBUG
-        if (Input.GetKeyDown(KeyCode.V)) Victory();
-        else  if (Input.GetKeyDown(KeyCode.D)) Defeat();
-    }
-#endif
-
     private void OnEnemyDeath(Enemy enemy)
     {
         _enemies.Remove(enemy);
