@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Enemy : BehaviorRunner
 {
+    [SerializeField] private float viewHeightOffset;
     [SerializeField] private float activationRange;
+    [SerializeField] private LayerMask viewBlockMask;
 
     //TODO isso e tudo sobre ragdoll deveria estar na classe de vida
     [SerializeField] private GameObject ragdollPrefab;
@@ -12,6 +14,19 @@ public class Enemy : BehaviorRunner
         var rb = instance.GetComponentInChildren<Rigidbody>();
         rb.AddForceAtPosition(force, impactPoint, ForceMode.Impulse);
         Destroy(gameObject);
+    }
+
+    private bool CanSee(Vector3 pos)
+    {
+        // Sem angulo de visão
+        float sqrDistanceToPlayer = (transform.position - pos).sqrMagnitude;
+        if (sqrDistanceToPlayer > activationRange * activationRange)
+        {
+            return false;
+        }
+
+        Vector3 castStart = transform.position + Vector3.up * viewHeightOffset;
+        return !Physics.Linecast(castStart, pos, viewBlockMask);
     }
 
     public bool Alerted { get; private set; }
@@ -43,15 +58,14 @@ public class Enemy : BehaviorRunner
             return null;
         }
         
+        if (!Alerted && CanSee(player.position))
+        {
+            Alerted = true;
+        }
+        
         if (Alerted)
         {
             return _pursue;
-        }
-        
-        float sqrDistanceToPlayer = (transform.position - player.position).sqrMagnitude;
-        if (sqrDistanceToPlayer < activationRange * activationRange)
-        {
-            Alerted = true;
         }
 
         return _wander;

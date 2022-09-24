@@ -1925,8 +1925,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c5e777db7b49119c3f2a57bc174f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  viewHeightOffset: 1.5
   activationRange: 15
+  viewBlockMask:
+    serializedVersion: 2
+    m_Bits: 4096
   ragdollPrefab: {fileID: 1110528849644724679, guid: bcc2a9c71d7bb014fae514b3ec92d6c8,
     type: 3}
 --- !u!114 &8728424107598451195
@@ -1957,7 +1960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe69937d638f468c982638b1c845ea07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   accelerationTime: 0.75
   walkSpeed: 7.5
   rotationSpeed: 150
@@ -1979,7 +1981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1c38c718a94c67bcc86cacd5a4fcdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   accelerationTime: 0.25
   walkSpeed: 10
   rotationSpeed: 200

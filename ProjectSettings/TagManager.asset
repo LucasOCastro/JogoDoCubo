@@ -15,11 +15,11 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - Ground
+  - 
   - PlayerProjectile
   - Ragdoll
-  - 
-  - 
+  - Ground
+  - Walls
   - 
   - 
   - 

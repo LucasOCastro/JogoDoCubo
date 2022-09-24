@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class BehaviorAnimator : MonoBehaviour
 {
-    private static readonly int XVel = UnityEngine.Animator.StringToHash("xVel");
-    private static readonly int YVel = UnityEngine.Animator.StringToHash("yVel");
+    private static readonly int XVel = Animator.StringToHash("xVel");
+    private static readonly int YVel = Animator.StringToHash("yVel");
 
 
     private Animator _animator;

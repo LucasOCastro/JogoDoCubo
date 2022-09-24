@@ -18,6 +18,9 @@ public class LevelEndObserver : MonoBehaviour
         
         //var player = Player.Instance;
         //player.Health.OnDeath += Defeat;
+        
+        if (!victoryScreen.gameObject.activeSelf) victoryScreen.gameObject.SetActive(true);
+        if (!defeatScreen.gameObject.activeSelf) defeatScreen.gameObject.SetActive(true);
     }
 
 #if UNITY_EDITOR

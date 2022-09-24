@@ -18,7 +18,7 @@ public class AreaEnemyAttacker : EnemyAttacker
     private void Awake()
     {
         _behaviorAnimator = GetComponent<BehaviorAnimator>();
-        _animationHash = UnityEngine.Animator.StringToHash(animationName);
+        _animationHash = Animator.StringToHash(animationName);
     }
 
     protected override void OnAttackStart()
