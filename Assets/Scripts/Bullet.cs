@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,16 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed=10;
     [SerializeField] private float impact = 10;
-    void Update()
+
+    private Rigidbody _rb;
+    private void Awake()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        _rb.position += transform.forward * speed;
     }
     
     void OnCollisionEnter(Collision other)

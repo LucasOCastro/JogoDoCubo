@@ -15,8 +15,8 @@ public static class CameraUtility
     public static Vector3 DirectionToMouse(Vector3 from)
     {
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane playerPlane = new Plane(Vector3.up ,from);
-        playerPlane.Raycast(mouseRay, out float planeDistance);
+        Plane plane = new Plane(Vector3.up ,from);
+        plane.Raycast(mouseRay, out float planeDistance);
         Vector3 worldMousePos = mouseRay.GetPoint(planeDistance);
 
         return (worldMousePos - from).normalized;

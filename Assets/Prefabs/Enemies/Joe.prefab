@@ -990,8 +990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerationTime: 0.25
-  walkSpeed: 10
-  rotationSpeed: 200
+  walkSpeed: 15
+  rotationSpeed: 400
   moveAfterRotating: 0
 --- !u!65 &3145490639335504868
 BoxCollider:

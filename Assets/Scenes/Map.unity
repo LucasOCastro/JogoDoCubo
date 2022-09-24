@@ -897,6 +897,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2529976131462083504, guid: 6beddea5ef964d64f8aacb20801d426d,
+        type: 3}
+      propertyPath: ammoCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529976131462083504, guid: 6beddea5ef964d64f8aacb20801d426d,
+        type: 3}
+      propertyPath: reloadSeconds
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3826525501806859019, guid: 6beddea5ef964d64f8aacb20801d426d,
         type: 3}
       propertyPath: m_RootOrder
