@@ -1288,7 +1288,9 @@ MonoBehaviour:
     type: 3}
   minTimeBetweenShots: 0.25
   ammoCount: 7
-  reloadSeconds: 4
+  reloadSeconds: 0
+  source: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!114 &2024673048
 MonoBehaviour:
   m_ObjectHideFlags: 0
