@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryScreen: {fileID: 8282036992206619700}
   defeatScreen: {fileID: 8282036993164281110}
+  secondsBeforeEndScreen: 2
 --- !u!1 &8282036992206619702
 GameObject:
   m_ObjectHideFlags: 0

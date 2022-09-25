@@ -44,7 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6107c86e8d5a48ed88b8b7d03fe3b888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuScene: 
+  menuScene: Menu
   levels:
   - levelName: First Level
-    scene: 0
+    scene: 1
+  - levelName: Second Level
+    scene: 2
+  - levelName: Victory Screen
+    scene: 3

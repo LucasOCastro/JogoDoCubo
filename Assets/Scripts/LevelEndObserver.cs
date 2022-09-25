@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -53,9 +54,11 @@ public class LevelEndObserver : MonoBehaviour
     {
         EndWithScreen(defeatScreen);
     }
-    private async void EndWithScreen(Screen screen)
+    
+    private void EndWithScreen(Screen screen) => StartCoroutine(EndWithScreenCoroutine(screen));
+    private IEnumerator EndWithScreenCoroutine(Screen screen)
     {
-        await Task.Delay((int)(secondsBeforeEndScreen * 1000));
+        yield return new WaitForSeconds(secondsBeforeEndScreen);
         screen.SetShown(true);
     }
 }
