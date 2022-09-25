@@ -11,10 +11,18 @@ public class Shoot : MonoBehaviour
     [SerializeField] private float ammoCount;
     [SerializeField] private float reloadSeconds;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     private float _timer, _reloadTimer;
     private float _shotsFired;
     private void Update()
     {
+          if (Input.GetKeyDown(KeyCode.Space))
+        {
+            source.PlayOneShot(clip);
+         }
+
         _timer += Time.deltaTime;
 
         if (_shotsFired >= ammoCount)
