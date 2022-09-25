@@ -8,7 +8,9 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private GameObject ragdollPrefab;
 
     public System.Action OnDeath;
+    public System.Action OnDamaged;
 
+    public int MaxHealth => maxHealth;
     public int CurrentHealth { get; private set; }
 
     private void Awake()
@@ -20,6 +22,7 @@ public class HealthManager : MonoBehaviour
     public void Damage(int damage, Vector3 impactPoint, Vector3 impactForce)
     {
         CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, maxHealth + 1);
+        OnDamaged?.Invoke();
         if (CurrentHealth == 0)
         {
             Die(impactPoint, impactForce);
