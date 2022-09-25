@@ -13,13 +13,14 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        _rb.position += transform.forward * speed;
+        _rb.velocity = transform.forward * speed;
     }
-    
+
     void OnCollisionEnter(Collision other)
     {   
         if (other.gameObject.TryGetComponent<HealthManager>(out var health)) //Verifica se o objeto possui a Tag "Enemy"
