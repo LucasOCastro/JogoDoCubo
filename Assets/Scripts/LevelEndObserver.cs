@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class LevelEndObserver : MonoBehaviour
 {
     [SerializeField] private Screen victoryScreen;
     [SerializeField] private Screen defeatScreen;
+    [SerializeField] private float secondsBeforeEndScreen;
     private HashSet<Enemy> _enemies = new HashSet<Enemy>();
     private void Start()
     {
@@ -13,11 +15,13 @@ public class LevelEndObserver : MonoBehaviour
         foreach (var enemy in enemies)
         {
             _enemies.Add(enemy);
-            //enemy.Health.OnDeath += () => OnEnemyDeath(enemy);
+            var enemyHealth = enemy.GetComponent<HealthManager>();
+            enemyHealth.OnDeath += () => OnEnemyDeath(enemy);
         }
         
-        //var player = Player.Instance;
-        //player.Health.OnDeath += Defeat;
+        var player = Player.Instance;
+        var playerHealth = player.GetComponent<HealthManager>();
+        playerHealth.OnDeath += Defeat;
 
         GuaranteeIsActive(victoryScreen);
         GuaranteeIsActive(defeatScreen);
@@ -43,11 +47,15 @@ public class LevelEndObserver : MonoBehaviour
 
     private void Victory()
     {
-        victoryScreen.SetShown(true);
+        EndWithScreen(victoryScreen);
     }
-
     private void Defeat()
     {
-        defeatScreen.SetShown(true);
+        EndWithScreen(defeatScreen);
+    }
+    private async void EndWithScreen(Screen screen)
+    {
+        await Task.Delay((int)(secondsBeforeEndScreen * 1000));
+        screen.SetShown(true);
     }
 }

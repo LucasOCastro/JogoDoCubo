@@ -1890,6 +1890,7 @@ GameObject:
   - component: {fileID: 8728424107598451169}
   - component: {fileID: 8728424109212127576}
   - component: {fileID: 8728424109212127570}
+  - component: {fileID: 1872737896601389962}
   - component: {fileID: -5802601602928133382}
   m_Layer: 7
   m_Name: Jef
@@ -1927,12 +1928,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewHeightOffset: 1.5
-  activationRange: 15
+  activationRange: 29.2
   viewBlockMask:
     serializedVersion: 2
     m_Bits: 4096
-  ragdollPrefab: {fileID: 1110528849644724679, guid: bcc2a9c71d7bb014fae514b3ec92d6c8,
-    type: 3}
 --- !u!114 &8728424107598451195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1945,6 +1944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6992177e98384312acfd5392e488f117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  impact: 15
   cooldownTime: 0
   distance: 2.1
   angle: 80
@@ -1965,7 +1966,7 @@ MonoBehaviour:
   walkSpeed: 7.5
   rotationSpeed: 150
   moveAfterRotating: 0
-  maxDistanceFromOrigin: 17
+  maxDistanceFromOrigin: 9.48
   changeSecondsMin: 1.5
   changeSecondsMax: 2.5
   returnAngle: 90
@@ -2031,6 +2032,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09169311f58342a1986f63ca963cf3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1872737896601389962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728424107598451170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f245805ec0483dab1cc8d31bbd6be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  ragdollPrefab: {fileID: 1110528849644724679, guid: bcc2a9c71d7bb014fae514b3ec92d6c8,
+    type: 3}
 --- !u!54 &-5802601602928133382
 Rigidbody:
   m_ObjectHideFlags: 0

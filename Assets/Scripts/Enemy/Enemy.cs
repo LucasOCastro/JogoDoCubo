@@ -5,17 +5,7 @@ public class Enemy : BehaviorRunner
     [SerializeField] private float viewHeightOffset;
     [SerializeField] private float activationRange;
     [SerializeField] private LayerMask viewBlockMask;
-
-    //TODO isso e tudo sobre ragdoll deveria estar na classe de vida
-    [SerializeField] private GameObject ragdollPrefab;
-    public void SpawnRagdoll(Vector3 impactPoint, Vector3 force)
-    {
-        var instance = Instantiate(ragdollPrefab, transform.position, transform.rotation);
-        var rb = instance.GetComponentInChildren<Rigidbody>();
-        rb.AddForceAtPosition(force, impactPoint, ForceMode.Impulse);
-        Destroy(gameObject);
-    }
-
+    
     private bool CanSee(Vector3 pos)
     {
         // Sem angulo de visão
@@ -50,19 +40,26 @@ public class Enemy : BehaviorRunner
         {
             return null;
         }
-        
-        Transform player = Player.Instance.transform;
-        if (_attacker.CanAttack(player))
+
+        var player = Player.Instance;
+        if (player == null)
         {
-            _attacker.StartAttack(player);
-            return null;
+            return _wander;
         }
         
-        if (!Alerted && CanSee(player.position))
+        
+        Transform playerTransform = player.transform;
+        if (_attacker.CanAttack(playerTransform))
+        {
+            _attacker.StartAttack(player.GetComponent<HealthManager>());
+            return null;
+        }
+            
+        if (!Alerted && CanSee(playerTransform.position))
         {
             Alerted = true;
         }
-        
+            
         if (Alerted)
         {
             return _pursue;

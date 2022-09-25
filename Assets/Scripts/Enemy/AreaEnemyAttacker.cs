@@ -28,11 +28,11 @@ public class AreaEnemyAttacker : EnemyAttacker
 
     protected override void AttackUpdate()
     {
-        if (_attackWindow && IsInArea(Target.position))
+        if (_attackWindow && IsInArea(Target.transform.position))
         {
-            //TODO ataca o player aqui
-            Debug.Log("TOME");
+            DamageTarget();
             _attackWindow = false;
+            
         }
     }
 

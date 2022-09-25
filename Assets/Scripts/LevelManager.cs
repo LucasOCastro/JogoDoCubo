@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
         }
         LoadLevel(_instance.levels[lvl]);
     }
-    private static  void LoadLevel(Level lvl)
+    private static void LoadLevel(Level lvl)
     {
         SceneManager.LoadScene(lvl.SceneBuildIndex);
         CurrentLevel = lvl;

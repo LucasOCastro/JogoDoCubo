@@ -897,6 +897,7 @@ GameObject:
   - component: {fileID: 3145490639335504868}
   - component: {fileID: 3145490639861283677}
   - component: {fileID: 3145490639861283671}
+  - component: {fileID: -8841636249306399509}
   - component: {fileID: -7208078441631089023}
   m_Layer: 7
   m_Name: Joe
@@ -938,8 +939,6 @@ MonoBehaviour:
   viewBlockMask:
     serializedVersion: 2
     m_Bits: 4096
-  ragdollPrefab: {fileID: 6698066696436152226, guid: 30eb6e60c47376d45b7e0318965883bf,
-    type: 3}
 --- !u!114 &3145490639335504894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,6 +951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6992177e98384312acfd5392e488f117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  impact: 15
   cooldownTime: 0
   distance: 2.1
   angle: 80
@@ -1038,6 +1039,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09169311f58342a1986f63ca963cf3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8841636249306399509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3145490639335504871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f245805ec0483dab1cc8d31bbd6be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  ragdollPrefab: {fileID: 6698066696436152226, guid: 30eb6e60c47376d45b7e0318965883bf,
+    type: 3}
 --- !u!54 &-7208078441631089023
 Rigidbody:
   m_ObjectHideFlags: 0

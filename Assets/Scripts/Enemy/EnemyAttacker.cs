@@ -3,6 +3,8 @@ using UnityEngine;
 
 public abstract class EnemyAttacker : MonoBehaviour
 {
+    [SerializeField] private int damage;
+    [SerializeField] private float impact;
     [SerializeField] private float cooldownTime;
     private float _cooldownTimer;
 
@@ -23,11 +25,11 @@ public abstract class EnemyAttacker : MonoBehaviour
         }
     }
     
-    protected Transform Target { get; private set; }
-    public void StartAttack(Transform player)
+    protected HealthManager Target { get; private set; }
+    public void StartAttack(HealthManager target)
     {
         Attacking = true;
-        Target = player;
+        Target = target;
         OnAttackStart();
     }
 
@@ -36,6 +38,13 @@ public abstract class EnemyAttacker : MonoBehaviour
         Attacking = false;
         Target = null;
         _cooldownTimer = 0;
+    }
+
+    protected void DamageTarget()
+    {
+        Vector3 impactPoint = Target.transform.position;
+        Vector3 impactForce = transform.forward * impact;
+        Target.Damage(damage, impactPoint, impactForce);
     }
 
     protected abstract void OnAttackStart();
