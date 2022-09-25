@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InGame/Level2.unity
     guid: e2448e5bea66fca4a9ea35695537469f
+  - enabled: 1
+    path: Assets/Scenes/Testing/Vitoria.unity
+    guid: c10c3c087e571484da7b1af999fb5914
   m_configObjects: {}
