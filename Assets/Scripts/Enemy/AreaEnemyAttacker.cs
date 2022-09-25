@@ -6,6 +6,9 @@ public class AreaEnemyAttacker : EnemyAttacker
     [Range(0, 360)] [SerializeField] private float angle;
     [SerializeField] private string animationName;
 
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip clip;
+
     private bool IsInDistance(Vector3 point) => (point - transform.position).sqrMagnitude <= distance * distance;
     private bool IsInAngle(Vector3 point) => Vector3.Angle(transform.forward, point - transform.position) <= angle * .5f;
     private bool IsInArea(Vector3 point) => IsInDistance(point) && IsInAngle(point);
@@ -30,6 +33,7 @@ public class AreaEnemyAttacker : EnemyAttacker
     {
         if (_attackWindow && IsInArea(Target.transform.position))
         {
+            source.PlayOneShot(clip);
             DamageTarget();
             _attackWindow = false;
             
