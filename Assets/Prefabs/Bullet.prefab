@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  impact: 20
+  impact: 25
   damage: 1
 --- !u!114 &3694152227450289928
 MonoBehaviour:
