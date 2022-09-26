@@ -4413,12 +4413,12 @@ PrefabInstance:
     - target: {fileID: 3544109734973258098, guid: df77da1f8a5cec444ac8cca1cd526d8e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000001597181
+      value: 1.2212146e-15
       objectReference: {fileID: 0}
     - target: {fileID: 3544109734973258098, guid: df77da1f8a5cec444ac8cca1cd526d8e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000000070481354
+      value: 4.6471314e-16
       objectReference: {fileID: 0}
     - target: {fileID: 3544109734973258098, guid: df77da1f8a5cec444ac8cca1cd526d8e,
         type: 3}
@@ -6374,16 +6374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2174884359886109316, guid: 81d5d9f83d88b2543a98dd1692a4da04,
-        type: 3}
-      propertyPath: levels.Array.data[1].scene
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2174884359886109316, guid: 81d5d9f83d88b2543a98dd1692a4da04,
-        type: 3}
-      propertyPath: levels.Array.data[1].levelName
-      value: VictoryScreen
-      objectReference: {fileID: 0}
     - target: {fileID: 2346447858535459159, guid: 81d5d9f83d88b2543a98dd1692a4da04,
         type: 3}
       propertyPath: m_RootOrder
