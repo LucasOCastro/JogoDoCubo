@@ -32,6 +32,8 @@ public class Enemy : BehaviorRunner
         _attacker = GetComponent<EnemyAttacker>();
         _wander = GetComponent<WanderBehavior>();
         _pursue = GetComponent<PursuePlayerBehavior>();
+
+        GetComponent<HealthManager>().OnDamaged += () => Alerted = true;
     }
 
     protected override Behavior GetBehavior()

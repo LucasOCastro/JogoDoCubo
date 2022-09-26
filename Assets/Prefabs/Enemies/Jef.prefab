@@ -1929,7 +1929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewHeightOffset: 1.5
-  activationRange: 29.2
+  activationRange: 30
   viewBlockMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -1948,7 +1948,7 @@ MonoBehaviour:
   damage: 1
   impact: 15
   cooldownTime: 0
-  distance: 2.1
+  distance: 3
   angle: 100
   animationName: EnemyAttack
   source: {fileID: 2117806610048310084}
@@ -2012,7 +2012,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8728424107598451170}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: b71b39f35bb524d4d83958b2bdbda41c, type: 3}
   m_Controller: {fileID: 9100000, guid: fca90834c5eef0042995bc75ee9a9411, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

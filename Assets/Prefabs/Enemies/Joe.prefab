@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewHeightOffset: 1.5
-  activationRange: 15
+  activationRange: 30
   viewBlockMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -955,7 +955,7 @@ MonoBehaviour:
   damage: 1
   impact: 15
   cooldownTime: 0
-  distance: 2.1
+  distance: 3
   angle: 100
   animationName: EnemyAttack
   source: {fileID: -3371753813350032526}
