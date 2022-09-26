@@ -1290,6 +1290,9 @@ MonoBehaviour:
   minTimeBetweenShots: 0.25
   ammoCount: 7
   reloadSeconds: 0
+  clipBlockMask:
+    serializedVersion: 2
+    m_Bits: 4224
   source: {fileID: -6158646125494775883}
   clip: {fileID: 8300000, guid: 258bbeef76136924480dab274546c816, type: 3}
 --- !u!114 &2024673048

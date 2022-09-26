@@ -10,6 +10,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] private float minTimeBetweenShots;
     [SerializeField] private float ammoCount;
     [SerializeField] private float reloadSeconds;
+    [SerializeField] private LayerMask clipBlockMask;
     public AudioSource source;
     public AudioClip clip;
 
@@ -45,11 +46,16 @@ public class Shoot : MonoBehaviour
         Vector3 direction = CameraUtility.DirectionToMouse(position);
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
         source.PlayOneShot(clip);
-        Instantiate(bullet, position, rotation);
+        var bulletInstance = Instantiate(bullet, position, rotation);
         if (fireEffectPrefab != null)
         {
             Vector3 effectPos = (effectSpawnPos != null) ? effectSpawnPos.position : position;
             Instantiate(fireEffectPrefab, effectPos, rotation);    
+        }
+
+        if (Physics.Linecast(transform.position, position, out RaycastHit hitInfo, clipBlockMask))
+        {
+            bulletInstance.CollideWith(hitInfo.collider);
         }
     }
 }

@@ -63,13 +63,13 @@ public abstract class MovementBehavior : Behavior
         //Aceleração instantânea
         if (accelerationTime == 0)
         {
-            transform.position += dir * walkSpeed * Time.deltaTime;
+            _rb.velocity = dir * walkSpeed;
             return;
         }
 
         //Aceleração suavizada
         Vector3 targetVelocity = dir * walkSpeed;
         Velocity = Vector3.MoveTowards(Velocity, targetVelocity, Acceleration * Time.deltaTime);
-        _rb.position += Velocity * Time.deltaTime;
+        _rb.velocity = Velocity;
     }
 }

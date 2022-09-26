@@ -31,6 +31,11 @@ public class AreaEnemyAttacker : EnemyAttacker
 
     protected override void AttackUpdate()
     {
+        if (Target == null)
+        {
+            return;
+        }
+        
         if (_attackWindow && IsInArea(Target.transform.position))
         {
             source.PlayOneShot(clip);

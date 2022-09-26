@@ -21,13 +21,18 @@ public class Bullet : MonoBehaviour
         _rb.velocity = transform.forward * speed;
     }
 
-    void OnTriggerEnter(Collider other)
-    {   
+    public void CollideWith(Collider other)
+    {
         if (other.gameObject.TryGetComponent<HealthManager>(out var health)) //Verifica se o objeto possui a Tag "Enemy"
         {
             health.Damage(damage, transform.position, transform.forward * impact);
         }
 
         Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {   
+        CollideWith(other);
     }
 }
