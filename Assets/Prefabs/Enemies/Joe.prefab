@@ -956,7 +956,7 @@ MonoBehaviour:
   impact: 15
   cooldownTime: 0
   distance: 2.1
-  angle: 80
+  angle: 100
   animationName: EnemyAttack
   source: {fileID: -3371753813350032526}
   clip: {fileID: 8300000, guid: b2763a282687351408768a614a6f6f9a, type: 3}
