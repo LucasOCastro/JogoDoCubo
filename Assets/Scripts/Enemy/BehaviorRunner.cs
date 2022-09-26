@@ -18,6 +18,10 @@ public abstract class BehaviorRunner : MonoBehaviour
     private void Update()
     {
         Behavior newBehavior = GetBehavior();
+        if (CurrentBehavior != null)
+        {
+            CurrentBehavior.Exit();
+        }
         if (newBehavior != CurrentBehavior)
         {
             CurrentBehavior = newBehavior;

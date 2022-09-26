@@ -49,17 +49,16 @@ public class Enemy : BehaviorRunner
             return _wander;
         }
         
-        
         Transform playerTransform = player.transform;
-        if (_attacker.CanAttack(playerTransform))
-        {
-            _attacker.StartAttack(player.GetComponent<HealthManager>());
-            return null;
-        }
-            
         if (!Alerted && CanSee(playerTransform.position))
         {
             Alerted = true;
+        }
+        
+        if (Alerted && _attacker.CanAttack(playerTransform))
+        {
+            _attacker.StartAttack(player.GetComponent<HealthManager>());
+            return null;
         }
             
         if (Alerted)

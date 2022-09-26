@@ -43,7 +43,12 @@ public abstract class MovementBehavior : Behavior
         }
         MoveTowards(moveDir);
     }
-    
+
+    public override void Exit()
+    {
+        _rb.velocity = Vector3.zero;
+    }
+
     private void RotateTowards(Vector3 dir)
     {
         //Rotação instantânea
