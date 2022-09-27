@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 3544109734973258100}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0.3, y: 10.5, z: -9.54}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3544109735112821313}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   incrementSize: 90
-  rotateSpeed: 100
+  rotateSpeed: 150
   leftRotateKey: 113
   rightRotateKey: 101
 --- !u!114 &3544109734973258101
@@ -200,7 +200,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7147287, y: 1}
+    m_SensorSize: {x: 1.7085271, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
