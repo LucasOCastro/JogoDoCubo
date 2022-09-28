@@ -1,12 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private HealthManager healthManager;
-    
+
     private Slider _slider;
-    
+
     private void Awake()
     {
         _slider = GetComponent<Slider>();
