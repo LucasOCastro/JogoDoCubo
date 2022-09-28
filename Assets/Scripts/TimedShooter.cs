@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,9 +8,14 @@ public abstract class TimedShooter : Shooter
     [SerializeField] private int ammoCount;
     [SerializeField] private float reloadSeconds;
 
+    public Action OnReload;
+
     private bool HandlesReloading => ammoCount > 0 && reloadSeconds > 0;
 
-    protected int RemainingAmmo { get; private set; }
+    public int MaxAmmo => ammoCount;
+    public int RemainingAmmo => MaxAmmo - _shotsFired;
+
+    private int _shotsFired;
     protected void Reload()
     {
         if (HandlesReloading && !_reloading)
@@ -32,7 +38,8 @@ public abstract class TimedShooter : Shooter
         _reloading = true;
         yield return new WaitForSeconds(reloadSeconds);
         _reloading = false;
-        RemainingAmmo = ammoCount;
+        _shotsFired = 0;
+        OnReload?.Invoke();
     }
     
     protected override void Fire(Vector3 direction)
@@ -47,7 +54,7 @@ public abstract class TimedShooter : Shooter
             return;
         }
         base.Fire(direction);
-        RemainingAmmo--;
+        _shotsFired++;
         
         StartCoroutine(CooldownCoroutine());
     }

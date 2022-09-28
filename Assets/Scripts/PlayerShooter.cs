@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Shoot : TimedShooter
+public class PlayerShooter : TimedShooter
 {
     [SerializeField] private Transform weapon;
     [SerializeField] private float noRotationDistance;

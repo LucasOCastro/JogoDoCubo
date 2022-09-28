@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class Shooter : MonoBehaviour
@@ -9,11 +10,15 @@ public abstract class Shooter : MonoBehaviour
     [SerializeField] private LayerMask clipBlockMask;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] public AudioClip audioClip;
+
+    public Action OnShoot;
     
     protected Transform BulletOrigin => (bulletSpawnPos != null) ? bulletSpawnPos : transform;
 
     protected virtual void Fire(Vector3 direction)
     {
+        OnShoot?.Invoke();
+        
         Vector3 position = BulletOrigin.position;
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
         var bulletInstance = Instantiate(bullet, position, rotation);
