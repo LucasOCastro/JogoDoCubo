@@ -1,61 +1,29 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Shoot : TimedShooter
 {
-    [SerializeField] private Bullet bullet;
-    [SerializeField] private Transform bulletSpawnPos;
-    [SerializeField] private Transform effectSpawnPos;
-    [SerializeField] private Transform fireEffectPrefab;
-    [SerializeField] private float minTimeBetweenShots;
-    [SerializeField] private float ammoCount;
-    [SerializeField] private float reloadSeconds;
-    [SerializeField] private LayerMask clipBlockMask;
-    public AudioSource source;
-    public AudioClip clip;
+    [SerializeField] private Transform weapon;
+    [SerializeField] private float noRotationDistance;
 
-    private float _timer, _reloadTimer;
-    private float _shotsFired;
+    private bool TooClose => (CameraUtility.MouseWorldPos(transform.position.y) - transform.position).sqrMagnitude < noRotationDistance * noRotationDistance;
     private void Update()
     {
-        _timer += Time.deltaTime;
-
-        if (_shotsFired >= ammoCount)
-        {
-            if (_reloadTimer <= reloadSeconds)
-            {
-                _reloadTimer += Time.deltaTime;
-                return;
-            }
-            _reloadTimer = 0;
-            _shotsFired = 0;
-        }
+        bool tooClose = TooClose;
         
-        if (Input.GetButton("Fire1") && _timer >= minTimeBetweenShots)
-        {
-            Fire();
-            _timer = 0;
-            _reloadTimer = 0;
-            _shotsFired++;
-        }
-    }
+        Vector3 weaponForward = tooClose ? weapon.forward : CameraUtility.DirectionToMouse(weapon.position).Flat().normalized;
+        weaponForward = weaponForward.Flat().normalized;
+        weapon.forward = weaponForward;
 
-    private void Fire()
-    {
-        Vector3 position = (bulletSpawnPos != null) ? bulletSpawnPos.position : transform.position;
-        Vector3 direction = CameraUtility.DirectionToMouse(position);
-        Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-        source.PlayOneShot(clip);
-        var bulletInstance = Instantiate(bullet, position, rotation);
-        if (fireEffectPrefab != null)
+        
+        if (Input.GetButton("Fire1"))
         {
-            Vector3 effectPos = (effectSpawnPos != null) ? effectSpawnPos.position : position;
-            Instantiate(fireEffectPrefab, effectPos, rotation);    
+            Vector3 dir = tooClose ? BulletOrigin.forward : CameraUtility.DirectionToMouse(BulletOrigin.position);
+            dir = dir.Flat().normalized;
+            Fire(dir);
         }
-
-        if (Physics.Linecast(transform.position, position, out RaycastHit hitInfo, clipBlockMask))
+        else if (Input.GetButtonDown("Reload"))
         {
-            bulletInstance.CollideWith(hitInfo.collider);
+            Reload();
         }
     }
 }

@@ -1350,14 +1350,16 @@ MonoBehaviour:
   effectSpawnPos: {fileID: 1399565134055272588}
   fireEffectPrefab: {fileID: 1851759145057368652, guid: 11612bc681afd704b9b207f2b0b916ec,
     type: 3}
-  minTimeBetweenShots: 0.25
-  ammoCount: 7
-  reloadSeconds: 0
   clipBlockMask:
     serializedVersion: 2
     m_Bits: 4224
-  source: {fileID: -6158646125494775883}
-  clip: {fileID: 8300000, guid: 258bbeef76136924480dab274546c816, type: 3}
+  audioSource: {fileID: -6158646125494775883}
+  audioClip: {fileID: 8300000, guid: 258bbeef76136924480dab274546c816, type: 3}
+  minTimeBetweenShots: 0.25
+  ammoCount: 0
+  reloadSeconds: 0
+  weapon: {fileID: 9186777580171949693}
+  noRotationDistance: 2.5
 --- !u!114 &2024673048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1857,9 +1859,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5644217269891286409}
-  m_LocalRotation: {x: -0.39401516, y: 0.58715594, z: 0.39401516, w: 0.587156}
-  m_LocalPosition: {x: 0.1890237, y: 0.17269555, z: -0.6429987}
-  m_LocalScale: {x: 0.99999976, y: 0.9999997, z: 0.9999997}
+  m_LocalRotation: {x: -0.3940152, y: 0.587156, z: 0.3940151, w: 0.58715594}
+  m_LocalPosition: {x: 0.18902308, y: 0.17269588, z: -0.64299846}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6297690691718889368}
@@ -2470,8 +2472,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8604354688922091124}
-  m_LocalRotation: {x: 0.99997723, y: -0.0000003581017, z: 9.822558e-10, w: -0.0067470316}
-  m_LocalPosition: {x: 0, y: 0.0075464286, z: -0.55917275}
+  m_LocalRotation: {x: 0.99997723, y: -0.0000003278179, z: 0.0000000026140312, w: -0.0067470167}
+  m_LocalPosition: {x: 0, y: 0.0075455504, z: -0.55917275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
