@@ -6,6 +6,7 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
     [SerializeField] private GameObject ragdollPrefab;
+    [SerializeField] private ParticleSystem deathParticle;
 
     public System.Action OnDeath;
     public System.Action OnDamaged;
@@ -18,6 +19,7 @@ public class HealthManager : MonoBehaviour
         CurrentHealth = maxHealth;
     }
 
+    public void Kill() => Damage(CurrentHealth);
     public void Damage(int damage) => Damage(damage, Vector3.zero, Vector3.zero);
     public void Damage(int damage, Vector3 impactPoint, Vector3 impactForce)
     {
@@ -35,6 +37,12 @@ public class HealthManager : MonoBehaviour
         {
             SpawnRagdoll(impactPoint, impactForce);
         }
+
+        if (deathParticle != null)
+        {
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
+        }
+        
         OnDeath?.Invoke();
         Destroy(gameObject);
     }

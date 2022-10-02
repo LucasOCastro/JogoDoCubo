@@ -135,6 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   ragdollPrefab: {fileID: 0}
+  deathParticle: {fileID: 7169481224190082545, guid: 865d09db4ad1ef14abe1edcd32617a83,
+    type: 3}
 --- !u!1 &4493918261744642853
 GameObject:
   m_ObjectHideFlags: 0

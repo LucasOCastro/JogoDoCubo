@@ -6,10 +6,16 @@ using UnityEngine;
 
 public class LevelEndObserver : MonoBehaviour
 {
+    public enum EndState {Victory, Defeat}
+    
     [SerializeField] private Screen victoryScreen;
     [SerializeField] private Screen defeatScreen;
     [SerializeField] private float secondsBeforeEndScreen;
+    [SerializeField] private HealthManager winOnDeath;
     private HashSet<Enemy> _enemies = new HashSet<Enemy>();
+
+    public Action<EndState> OnLevelEnd;
+    
     private void Start()
     {
         var enemies = FindObjectsOfType<Enemy>();
@@ -17,6 +23,8 @@ public class LevelEndObserver : MonoBehaviour
         {
             RegisterEnemy(enemy);
         }
+
+        if (winOnDeath != null) winOnDeath.OnDeath += Victory; 
         
         var player = Player.Instance;
         var playerHealth = player.GetComponent<HealthManager>();
@@ -53,10 +61,12 @@ public class LevelEndObserver : MonoBehaviour
 
     private void Victory()
     {
+        OnLevelEnd?.Invoke(EndState.Victory);
         EndWithScreen(victoryScreen);
     }
     private void Defeat()
     {
+        OnLevelEnd?.Invoke(EndState.Defeat);
         EndWithScreen(defeatScreen);
     }
     

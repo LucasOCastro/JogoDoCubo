@@ -50,5 +50,11 @@ MonoBehaviour:
     scene: 1
   - levelName: Second Level
     scene: 2
+  - levelName: Third Level
+    scene: 4
+  - levelName: Fourth Level
+    scene: 5
+  - levelName: Boss Fight
+    scene: 6
   - levelName: Victory Screen
     scene: 3

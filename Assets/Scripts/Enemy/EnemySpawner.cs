@@ -31,7 +31,13 @@ public class EnemySpawner : MonoBehaviour
 
     private LevelEndObserver _observer;
     private float _timer, _timeNeeded = -1;
-    
+
+    private void Awake()
+    {
+        _observer = FindObjectOfType<LevelEndObserver>();
+        _observer.OnLevelEnd += state => gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         if (_timeNeeded < 0)
@@ -66,12 +72,17 @@ public class EnemySpawner : MonoBehaviour
     {
         Enemy instance = Instantiate(prefab, transform.position, Quaternion.identity);
         instance.Alerted = true;
+
+        HealthManager health = instance.GetComponent<HealthManager>();
+        _observer.OnLevelEnd += state => {
+            if (state == LevelEndObserver.EndState.Victory && health) {
+                health.Kill();
+            }
+        };
+        //health.OnDeath += () => _observer.OnLevelEnd -= health.Kill;
+        
         if (countForLevelEnd)
         {
-            if (_observer == null)
-            {
-                _observer = FindObjectOfType<LevelEndObserver>();
-            }
             _observer.RegisterEnemy(instance);
         }
     }

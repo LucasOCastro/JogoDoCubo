@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InGame/Vitoria.unity
     guid: c10c3c087e571484da7b1af999fb5914
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level3.unity
+    guid: bd7721aa09feef644b3a4a4a9230b3fa
+  - enabled: 1
+    path: Assets/Scenes/InGame/Level4.unity
+    guid: 44b1aa8c2a0805840942c417c0cabafe
+  - enabled: 1
+    path: Assets/Scenes/InGame/BossStage.unity
+    guid: dd04030e1384e3b4a80e738eb9b2f0db
   m_configObjects: {}
