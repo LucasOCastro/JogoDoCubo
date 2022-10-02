@@ -51,6 +51,7 @@ MonoBehaviour:
   - prefab: {fileID: 8728424107598451198, guid: db9e37bf26246c945ad3899b9221005e,
       type: 3}
     chance: 0.35
-  minSeconds: 2
-  maxSeconds: 4
+  minSeconds: 10
+  maxSeconds: 22
+  maxEnemies: 3
   countForLevelEnd: 0

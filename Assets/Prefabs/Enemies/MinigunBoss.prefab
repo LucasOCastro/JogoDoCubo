@@ -40,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4493918260288931992}
-  - component: {fileID: 4493918260288931993}
   - component: {fileID: 1080211497}
-  m_Layer: 7
+  - component: {fileID: 1695562913}
+  m_Layer: 14
   m_Name: CollisionBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,19 +64,6 @@ Transform:
   m_Father: {fileID: 5129530154911022328}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4493918260288931993
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4493918260288931995}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.0140305, y: 4.755537, z: 2.742382}
-  m_Center: {x: 0, y: 1.8777685, z: 0.5886421}
 --- !u!54 &1080211497
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -93,6 +80,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &1695562913
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493918260288931995}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.8657212
+  m_Height: 7.7134266
+  m_Direction: 1
+  m_Center: {x: 0.004166603, y: 1.062304, z: 0.36246586}
 --- !u!1 &4493918260708990654
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,14 +153,14 @@ MonoBehaviour:
     type: 3}
   clipBlockMask:
     serializedVersion: 2
-    m_Bits: 4160
+    m_Bits: 64
   audioSource: {fileID: 473602319}
   audioClip: {fileID: 8300000, guid: 258bbeef76136924480dab274546c816, type: 3}
   minTimeBetweenShots: 0.2
   ammoCount: 30
   reloadSeconds: 5
   rotateTransform: {fileID: 5490436052343571983}
-  rotateSpeed: 60
+  rotateSpeed: 70
 --- !u!114 &4493918260708990653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f245805ec0483dab1cc8d31bbd6be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 42
+  maxHealth: 50
   ragdollPrefab: {fileID: 0}
   deathParticle: {fileID: 7169481224190082545, guid: 865d09db4ad1ef14abe1edcd32617a83,
     type: 3}
@@ -192,14 +193,14 @@ MonoBehaviour:
     type: 3}
   bombOrigin: {fileID: 1260098229}
   timer:
-    minTime: 2
-    maxTime: 6
+    minTime: 3
+    maxTime: 7
   distanceRange:
     _min: 5.08
     _max: 16.75
   bombCountRange:
     _min: 1
-    _max: 5
+    _max: 3
 --- !u!82 &473602319
 AudioSource:
   m_ObjectHideFlags: 0
@@ -399,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4493918261905796452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.141}
+  m_LocalPosition: {x: 0, y: 0, z: -0.036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -703,8 +704,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.1980977, y: 5.150907, z: 0.8256817}
-  m_Center: {x: -0.026591063, y: -0.6807318, z: -0.32989025}
+  m_Size: {x: 2.0258026, y: 5.724867, z: 0.8256817}
+  m_Center: {x: -0.009059072, y: -0.39375186, z: -0.32989025}
 --- !u!4 &4167839167488466709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ce538d667eef7e45ae45047f78a9367,

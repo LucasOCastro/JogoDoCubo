@@ -68,7 +68,7 @@ public class ArcProjectile : MonoBehaviour
         var collisions = Physics.OverlapSphere(pos, damageRadius, damageMask);
         foreach (var col in collisions)
         {
-            HealthManager health = col.GetComponent<HealthManager>();
+            HealthManager health = col.HealthFromCollider();
             if (!health) continue;
             Vector3 colPos = col.transform.position;
             Vector3 impactForce = (colPos - pos).normalized * this.impact;

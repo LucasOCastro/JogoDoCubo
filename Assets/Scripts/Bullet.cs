@@ -20,10 +20,11 @@ public class Bullet : MonoBehaviour
     {
         _rb.velocity = transform.forward * speed;
     }
-
+    
     public void CollideWith(Collider other)
     {
-        if (other.attachedRigidbody.TryGetComponent<HealthManager>(out var health)) //Verifica se o objeto possui a Tag "Enemy"
+        HealthManager health = other.HealthFromCollider();
+        if (health != null)
         {
             health.Damage(damage, transform.position, transform.forward * impact);
         }

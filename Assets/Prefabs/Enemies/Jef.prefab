@@ -1949,7 +1949,7 @@ MonoBehaviour:
   impact: 15
   cooldownTime: 0
   distance: 3
-  angle: 100
+  angle: 145
   animationName: EnemyAttack
   source: {fileID: 2117806610048310084}
   clip: {fileID: 8300000, guid: b2763a282687351408768a614a6f6f9a, type: 3}
@@ -2050,6 +2050,7 @@ MonoBehaviour:
   maxHealth: 4
   ragdollPrefab: {fileID: 1110528849644724679, guid: bcc2a9c71d7bb014fae514b3ec92d6c8,
     type: 3}
+  deathParticle: {fileID: 0}
 --- !u!54 &-5802601602928133382
 Rigidbody:
   m_ObjectHideFlags: 0
