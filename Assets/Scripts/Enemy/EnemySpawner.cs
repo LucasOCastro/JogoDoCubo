@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
 
         _timer += Time.deltaTime;
 
-        if (_timer >= maxSeconds)
+        if (_timer >= _timeNeeded)
         {
             Spawn(RandomPrefab());
             _timer = 0;
