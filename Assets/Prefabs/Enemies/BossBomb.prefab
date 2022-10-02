@@ -112,7 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 15
   speed: 20
-  explodeTimeUponLand: 2
+  explodeTimeUponLand:
+    _min: 1.5
+    _max: 3
   damage: 2
   impact: 25
   damageRadius: 3

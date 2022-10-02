@@ -1,11 +1,11 @@
 using System;
 
 [Serializable]
-public struct FloatRange : IEquatable<FloatRange>
+public struct IntRange : IEquatable<IntRange>
 {
     [UnityEngine.SerializeField]
-    private float _min;
-    public float Min
+    private int _min;
+    public int Min
     {
         get => _min;
         set
@@ -21,8 +21,8 @@ public struct FloatRange : IEquatable<FloatRange>
     }
     
     [UnityEngine.SerializeField]
-    private float _max;
-    public float Max
+    private int _max;
+    public int Max
     {
         get => _max;
         set
@@ -38,27 +38,30 @@ public struct FloatRange : IEquatable<FloatRange>
     }
 
     public float Medium => (Min + Max) * .5f;
-    public float Random => UnityEngine.Random.Range(Min, Max);
+    public int Random => UnityEngine.Random.Range(Min, Max+1);
+    public int RandomExclusive => UnityEngine.Random.Range(Min, Max);
 
-    public FloatRange(float min, float max)
+    public IntRange(int min, int max)
     {
         _min = (min > max) ? max : min;
         _max = (min > max) ? min : max;
     }
 
-    public bool Equals(FloatRange other)
+    public bool Equals(IntRange other)
     {
         return _min.Equals(other._min) && _max.Equals(other._max);
     }
     public override bool Equals(object obj)
     {
-        return obj is FloatRange other && Equals(other);
+        return obj is IntRange other && Equals(other);
     }
     public override int GetHashCode()
     {
+        FloatRange fr = new FloatRange();
+        IntRange ir = (IntRange)fr;
         return HashCode.Combine(_min, _max);
     }
-    
-    public static explicit operator IntRange(FloatRange fr) => new IntRange((int)fr._min, (int)fr._max);
-    public static implicit operator FloatRange((float min, float max) tuple) => new FloatRange(tuple.min, tuple.max);
+
+    public static explicit operator FloatRange(IntRange ir) => new FloatRange(ir._min, ir._max);
+    public static implicit operator IntRange((int min, int max) tuple) => new IntRange(tuple.min, tuple.max);
 }

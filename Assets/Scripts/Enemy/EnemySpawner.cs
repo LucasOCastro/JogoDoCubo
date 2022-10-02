@@ -15,7 +15,9 @@ public class EnemySpawner : MonoBehaviour
     
     [SerializeField] private EnemyChance[] prefabs;
     [SerializeField] private float minSeconds, maxSeconds;
+    [SerializeField] private int maxEnemies;
     [SerializeField] private bool countForLevelEnd;
+    
     private float _totalChance=-1;
     private float TotalChance
     {
@@ -26,20 +28,28 @@ public class EnemySpawner : MonoBehaviour
                 _totalChance = prefabs.Sum(p => p.chance);
             }
             return _totalChance;
-        }        
+        }
     }
 
     private LevelEndObserver _observer;
     private float _timer, _timeNeeded = -1;
+    private int _enemiesSpawned;
 
     private void Awake()
     {
         _observer = FindObjectOfType<LevelEndObserver>();
-        _observer.OnLevelEnd += state => gameObject.SetActive(false);
+        _observer.OnLevelEnd += _ => gameObject.SetActive(false);
+        
     }
 
     private void Update()
     {
+        if (_enemiesSpawned >= maxEnemies)
+        {
+            _timer = 0;
+            return;
+        }
+        
         if (_timeNeeded < 0)
         {
             _timeNeeded = Random.Range(minSeconds, maxSeconds);
@@ -72,10 +82,12 @@ public class EnemySpawner : MonoBehaviour
     {
         Enemy instance = Instantiate(prefab, transform.position, Quaternion.identity);
         instance.Alerted = true;
+        _enemiesSpawned++;
 
         HealthManager health = instance.GetComponent<HealthManager>();
+        health.OnDeath += () => _enemiesSpawned--;
         _observer.OnLevelEnd += state => {
-            if (state == LevelEndObserver.EndState.Victory && health) {
+            if (state == LevelEndObserver.EndState.Victory && health != null) {
                 health.Kill();
             }
         };

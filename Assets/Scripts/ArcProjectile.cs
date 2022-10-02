@@ -5,7 +5,7 @@ public class ArcProjectile : MonoBehaviour
 {
     [SerializeField] private float maxHeight;
     [SerializeField] private float speed;
-    [SerializeField] private float explodeTimeUponLand;
+    [SerializeField] private FloatRange explodeTimeUponLand;
     [Header("Damage")] 
     [SerializeField] private int damage;
     [SerializeField] private float impact;
@@ -50,7 +50,8 @@ public class ArcProjectile : MonoBehaviour
 
     private IEnumerator OnHitTargetCoroutine()
     {
-        yield return new WaitForSeconds(explodeTimeUponLand);
+        float time = explodeTimeUponLand.Random;
+        yield return new WaitForSeconds(time);
         Vector3 pos = transform.position;
 
         if (explodeEffect != null)

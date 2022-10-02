@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
 
     public void CollideWith(Collider other)
     {
-        if (other.gameObject.TryGetComponent<HealthManager>(out var health)) //Verifica se o objeto possui a Tag "Enemy"
+        if (other.attachedRigidbody.TryGetComponent<HealthManager>(out var health)) //Verifica se o objeto possui a Tag "Enemy"
         {
             health.Damage(damage, transform.position, transform.forward * impact);
         }

@@ -9,18 +9,30 @@ public class BombThrower : MonoBehaviour
     [SerializeField] private RandomTimer timer;
     [RadiusDraw(1, 0, 0)]
     [SerializeField] private FloatRange distanceRange;
+    [SerializeField] private IntRange bombCountRange = (1,1);
 
     private void Update()
     {
-        if (!timer.Tick(Time.deltaTime))
+        if (timer.Tick(Time.deltaTime))
         {
-            return;
+            ThrowBombs(bombCountRange.Random);
         }
+    }
 
+    private void ThrowBombs(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Vector3 finalPos = RandomPos();
+            Throw(finalPos); 
+        }
+    }
+
+    private Vector3 RandomPos()
+    {
         float randAngle = Random.Range(0, 360);
         Vector3 dir = Quaternion.AngleAxis(randAngle, Vector3.up) * Vector3.forward;
-        Vector3 finalPos = transform.position + (dir * distanceRange.Random);
-        Throw(finalPos);
+        return transform.position + (dir * distanceRange.Random);
     }
 
     private void Throw(Vector3 target)
