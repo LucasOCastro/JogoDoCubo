@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -6,9 +7,7 @@ public class StaticEnemyShooter : TimedShooter
     [SerializeField] private Transform rotateTransform;
     [SerializeField] private float rotateSpeed;
 
-    private Vector3 TargetDirection => (Player.Instance.transform.position - BulletOrigin.position).normalized;
-
-    void RotateTowards(Vector3 dir)
+    private void RotateTowards(Vector3 dir)
     {
         if (rotateSpeed == 0)
         {
@@ -22,9 +21,10 @@ public class StaticEnemyShooter : TimedShooter
     
     private void Update()
     {
-        if (Player.Instance == null) return;
+        if (Player.Instance == null || Reloading) return;
         
-        RotateTowards(TargetDirection);
+        Vector3 targetDirection = (Player.Instance.transform.position - BulletOrigin.position).normalized;
+        RotateTowards(targetDirection);
         Fire(BulletOrigin.forward);
     }
 }

@@ -22,7 +22,7 @@ public class BehaviorAnimator : MonoBehaviour
     private void Update()
     {
         Vector2 velocity = Vector2.zero;
-        if (_runner.CurrentBehavior is MovementBehavior movement)
+        if (_runner != null && _runner.CurrentBehavior is MovementBehavior movement)
         {
             Vector3 orientedVel = transform.InverseTransformDirection(movement.Velocity.normalized);
             velocity = new Vector2(orientedVel.x, orientedVel.z);

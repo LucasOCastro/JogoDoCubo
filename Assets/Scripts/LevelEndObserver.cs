@@ -15,9 +15,7 @@ public class LevelEndObserver : MonoBehaviour
         var enemies = FindObjectsOfType<Enemy>();
         foreach (var enemy in enemies)
         {
-            _enemies.Add(enemy);
-            var enemyHealth = enemy.GetComponent<HealthManager>();
-            enemyHealth.OnDeath += () => OnEnemyDeath(enemy);
+            RegisterEnemy(enemy);
         }
         
         var player = Player.Instance;
@@ -26,6 +24,13 @@ public class LevelEndObserver : MonoBehaviour
 
         GuaranteeIsActive(victoryScreen);
         GuaranteeIsActive(defeatScreen);
+    }
+
+    public void RegisterEnemy(Enemy enemy)
+    {
+        _enemies.Add(enemy);
+        var enemyHealth = enemy.GetComponent<HealthManager>();
+        enemyHealth.OnDeath += () => OnEnemyDeath(enemy);
     }
 
     void GuaranteeIsActive(Screen screen)

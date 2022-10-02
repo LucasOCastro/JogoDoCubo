@@ -8,7 +8,7 @@ public abstract class TimedShooter : Shooter
     [SerializeField] private int ammoCount;
     [SerializeField] private float reloadSeconds;
 
-    public Action OnReload;
+    public Action OnReloadStart, OnReloadEnd;
 
     private bool HandlesReloading => ammoCount > 0 && reloadSeconds > 0;
 
@@ -18,13 +18,16 @@ public abstract class TimedShooter : Shooter
     private int _shotsFired;
     protected void Reload()
     {
-        if (HandlesReloading && !_reloading)
+        if (HandlesReloading && !Reloading)
         {
             StartCoroutine(ReloadCoroutine());    
         }
     }
 
-    private bool _cooldown, _reloading;
+
+    public bool Reloading { get; private set; }
+
+    private bool _cooldown;
 
     private IEnumerator CooldownCoroutine()
     {
@@ -35,11 +38,12 @@ public abstract class TimedShooter : Shooter
 
     private IEnumerator ReloadCoroutine()
     {
-        _reloading = true;
+        Reloading = true;
+        OnReloadStart?.Invoke();
         yield return new WaitForSeconds(reloadSeconds);
-        _reloading = false;
+        Reloading = false;
         _shotsFired = 0;
-        OnReload?.Invoke();
+        OnReloadEnd?.Invoke();
     }
     
     protected override void Fire(Vector3 direction)
@@ -49,7 +53,7 @@ public abstract class TimedShooter : Shooter
             Reload();
             return;
         }
-        if (_cooldown)
+        if (_cooldown || Reloading)
         {
             return;
         }

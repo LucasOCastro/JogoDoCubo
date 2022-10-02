@@ -19,7 +19,7 @@ public class Enemy : BehaviorRunner
         return !Physics.Linecast(castStart, pos, viewBlockMask);
     }
 
-    public bool Alerted { get; private set; }
+    public bool Alerted { get; set; }
 
     //Idealmente, quando lidamos com Behaviors, temos uma estrutura de decisão como uma Behavior Tree.
     //O jogo é bem simples, e os inimigos mal aparecerão na câmera, então não implementei esse sistema.

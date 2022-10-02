@@ -16,7 +16,8 @@ public class AmmoIndicator : MonoBehaviour
         }
         _image = GetComponent<Image>();
         shooter.OnShoot += UpdateVal;
-        shooter.OnReload += UpdateVal;
+        //shooter.OnReloadStart += um indicador de recarga aqui talvez  
+        shooter.OnReloadEnd += UpdateVal;
     }
 
     private void UpdateVal()
